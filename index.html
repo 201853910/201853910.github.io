@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>宋yx的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="宋yx的博客">
+<meta property="og:url" content="https://blog.cdnweb.icu/index.html">
+<meta property="og:site_name" content="宋yx的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="宋yx">
+<meta property="article:tag" content="宋yx的博客,Microsoft,Windows,Office,OneDrive,Sharepoint,Deepin,UOS,Linux">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="宋yx的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">宋yx的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">宋yx的博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.cdnweb.icu"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Windows搭建KMS服务器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/01/16/Windows%E6%90%AD%E5%BB%BAKMS%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="article-date">
+  <time class="dt-published" datetime="2020-01-16T13:34:07.000Z" itemprop="datePublished">2020-01-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/01/16/Windows%E6%90%AD%E5%BB%BAKMS%E6%9C%8D%E5%8A%A1%E5%99%A8/">Windows搭建KMS服务器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="使用Windows系统搭建kms服务器"><a href="#使用Windows系统搭建kms服务器" class="headerlink" title="使用Windows系统搭建kms服务器"></a>使用Windows系统搭建kms服务器</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>网上有许多搭建的教程，但是使用的都是Linux系统，而我们正常使用的则是Windows系统。对Linux不熟悉的同学看着那左一个代码命令右一个代码命令的教程如同天书，看完一遍也不知道该如何操作。本教程则教你使用常用的Windows系统去搭建。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>一个Windows系统<br>  偶尔 / 临时使用的话可以搭建一个虚拟机，想要共享，或者是公司内部，单位内部的，建议直接安装到服务器上面，如果没有可以购买云服务器。</li>
+<li>【可选】公网IP和域名<br>  如果你想分享搭建好的kms服务器，必须要有一个公网IP。如果公网IP是静态的还好说，直接设置为IP即可，如果是动态IP，那么就需要通过DDNS来实现了。（由于我也只是对DDNS有初步的了解，所以本教程并不讲解有关DDNS的内容。提示一点：某些路由器自带DDNS）<br>  如果你使用的是云服务器，就比较方便了。这是因为你购买的云服务器它会自动给你分配一个静态的公网IP地址。但是IP地址是比较长的，一般不好记，所以建议购买一个域名并将域名绑定IP，这样就比较方便了。</li>
+<li>kms软件包<br>  <a target="_blank" rel="noopener" href="https://github.com/Wind4/vlmcsd/releases">点击这里</a>打开网址，下载最新版本的软件包。<h2 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h2></li>
+</ul>
+<ol>
+<li>将下载的压缩包解压，打开<code>\binaries\Windows\intel</code>，找到<code>vlmcsd-Windows-x64.exe</code>（如果是32位的系统，请选择<code>x86</code>的那个）。 <img src="/2020/01/16/Windows%E6%90%AD%E5%BB%BAKMS%E6%9C%8D%E5%8A%A1%E5%99%A8/202001162117367.png" class=""></li>
+<li>打开防火墙，将其添加到<code>允许的程序</code>列表中，使其不会因为被防火墙拦截而导致失败。</li>
+<li>点击上方地址栏，复制路径。</li>
+<li>以管理员身份打开命令提示符，输入<code>cd</code>+<code>空格</code>+<code>右键粘贴复制的路径</code>，回车。</li>
+<li>复制粘贴<code>vlmcsd-Windows-x64.exe -s</code>（32位系统的自行改为<code>x86</code>），回车，等待执行完成。</li>
+<li>重启电脑 / 服务器即可。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.cdnweb.icu/2020/01/16/Windows%E6%90%AD%E5%BB%BAKMS%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-id="ckkaj4yuw0000p0v90g0g6d3k" data-title="Windows搭建KMS服务器" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/01/16/Windows%E6%90%AD%E5%BB%BAKMS%E6%9C%8D%E5%8A%A1%E5%99%A8/">Windows搭建KMS服务器</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 宋yx<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

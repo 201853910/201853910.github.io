@@ -2,6 +2,14 @@
 <html lang="zh-cn">
     <head>
         <meta charset="UTF-8">
+        
+        <script type="text/javascript">
+            var targetProtocol = "https:";
+            if (window.location.protocol != targetProtocol)
+                window.location.href = targetProtocol +
+                    window.location.href.substring(window.location.protocol.length);
+        </script>
+        
         <title>Microsoft激活密钥</title>
     </head>
     <body>
